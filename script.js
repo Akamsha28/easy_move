@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const pauseButton = document.getElementById('pause-button');
     const endButton = document.getElementById('end-button');
+    const backButton = document.getElementById('back-button');
+    const nextButton = document.getElementById('next-button');
     const reminderButton = document.getElementById('reminder-button');
 
     const reminderModal = document.getElementById('reminder-modal');
@@ -31,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gentleStart: [
             { name: "Wall Push-Ups", duration: 30, description: "Strengthens chest, shoulders, and arms.", video: "https://media.istockphoto.com/id/1193951957/video/senior-man-doing-wall-push-ups-at-home.mp4?s=mp4-640x640-is&k=20&c=L4h3UKN_v3itO2-s2i3rS9AjyqPAZ_4wHqgL5s-p9_A=" },
             { name: "Rest", duration: 15, description: "Take a breath.", video: null },
-            { name: "Chair Squats", duration: 40, description: "Strengthens legs and core.", video: "https://res.cloudinary.com/dbco5pn5v/video/upload/v1752715223/Video_Ready_Opposite_Action_nkhz22.mp4" },
+            { name: "Chair Squats", duration: 40, description: "Strengthens legs and core.", video: "https://media.istockphoto.com/id/1318857505/video/senior-woman-doing-seated-chair-exercise-at-home.mp4?s=mp4-640x640-is&k=20&c=NogG0u338a_D_gYx8Z0B-2j_3q_1l_9k_8h_7g_6f" },
             { name: "Rest", duration: 15, description: "Good job.", video: null },
             { name: "Marching in Place", duration: 60, description: "Gently raises your heart rate.", video: "https://media.istockphoto.com/id/1318857489/video/senior-woman-doing-seated-chair-exercise-at-home.mp4?s=mp4-640x640-is&k=20&c=pA-XGOQy123G3L32o8Wajs5nS2j80a4E8uxd-dtJPUY=" },
             { name: "Rest", duration: 15, description: "Almost there.", video: null },
@@ -116,11 +118,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function changeExercise(direction) {
+        currentExerciseIndex += direction;
+        runExercise();
+    }
+
     function runExercise() {
+        clearTimeout(timer);
+        
+        // Handle workout boundaries
+        if (currentExerciseIndex < 0) {
+            currentExerciseIndex = 0; // Prevent going before the first exercise
+            return;
+        }
         if (currentExerciseIndex >= activeWorkout.length) {
             finishWorkout();
             return;
         }
+
+        // Update button states
+        backButton.disabled = (currentExerciseIndex === 0);
+        nextButton.textContent = (currentExerciseIndex === activeWorkout.length - 1) ? "Finish" : "Next »";
+
         const exercise = activeWorkout[currentExerciseIndex];
         exerciseTitle.textContent = exercise.name;
         exerciseDescription.textContent = exercise.description;
@@ -155,8 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (countdown >= 0 && isWorkoutRunning) {
                 runTimer(countdown);
             } else if (isWorkoutRunning) {
-                currentExerciseIndex++;
-                runExercise();
+                changeExercise(1); // Automatically move to the next exercise
             }
         }, 1000);
     }
@@ -198,6 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     endButton.addEventListener('click', endWorkout);
+    nextButton.addEventListener('click', () => changeExercise(1));
+    backButton.addEventListener('click', () => changeExercise(-1));
 
     // Reminder Logic
     function showModal(modal) { modal.style.display = 'flex'; }
@@ -262,4 +282,3 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTime = localStorage.getItem('gentleMovesReminderTime');
     if (savedTime) { scheduleNotification(savedTime); }
 });
-
