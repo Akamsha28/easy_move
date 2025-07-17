@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gentleStart: [
             { name: "Wall Push-Ups", duration: 30, description: "Strengthens chest, shoulders, and arms.", video: "https://media.istockphoto.com/id/1193951957/video/senior-man-doing-wall-push-ups-at-home.mp4?s=mp4-640x640-is&k=20&c=L4h3UKN_v3itO2-s2i3rS9AjyqPAZ_4wHqgL5s-p9_A=" },
             { name: "Rest", duration: 15, description: "Take a breath.", video: null },
-            { name: "Chair Squats", duration: 40, description: "Strengthens legs and core.", video: "https://media.istockphoto.com/id/1318857505/video/senior-woman-doing-seated-chair-exercise-at-home.mp4?s=mp4-640x640-is&k=20&c=NogG0u338a_D_gYx8Z0B-2j_3q_1l_9k_8h_7g_6f" },
+            { name: "Chair Squats", duration: 40, description: "Strengthens legs and core.", video: "https://res.cloudinary.com/dbco5pn5v/video/upload/v1752715223/Video_Ready_Opposite_Action_nkhz22.mp4" },
             { name: "Rest", duration: 15, description: "Good job.", video: null },
             { name: "Marching in Place", duration: 60, description: "Gently raises your heart rate.", video: "https://media.istockphoto.com/id/1318857489/video/senior-woman-doing-seated-chair-exercise-at-home.mp4?s=mp4-640x640-is&k=20&c=pA-XGOQy123G3L32o8Wajs5nS2j80a4E8uxd-dtJPUY=" },
             { name: "Rest", duration: 15, description: "Almost there.", video: null },
