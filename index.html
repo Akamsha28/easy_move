@@ -41,9 +41,16 @@
                     </div>
                     <p id="exercise-description" class="text-gray-600 text-left flex-1"></p>
                 </div>
-                <div class="flex justify-center space-x-4">
-                    <button id="pause-button" class="btn btn-secondary">Pause</button>
-                    <button id="end-button" class="btn btn-danger">End Workout</button>
+                <!-- Controls Container -->
+                <div class="space-y-4">
+                    <div class="flex justify-center space-x-4">
+                        <button id="back-button" class="btn btn-nav">« Back</button>
+                        <button id="next-button" class="btn btn-nav">Next »</button>
+                    </div>
+                    <div class="flex justify-center space-x-4">
+                        <button id="pause-button" class="btn btn-secondary">Pause</button>
+                        <button id="end-button" class="btn btn-danger">End Workout</button>
+                    </div>
                 </div>
             </div>
             <div id="finished-screen" class="hidden">
@@ -79,4 +86,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
