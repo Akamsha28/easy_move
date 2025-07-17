@@ -12,7 +12,7 @@ body {
 
 .btn {
     color: white;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, opacity 0.3s;
     border-radius: 1rem;
     font-weight: 600;
     padding: 1rem 1.5rem;
@@ -27,6 +27,15 @@ body {
 
 .btn-danger { background-color: #F87171; }
 .btn-danger:hover { background-color: #EF4444; }
+
+.btn-nav { background-color: #60A5FA; } /* Blue 400 */
+.btn-nav:hover { background-color: #3B82F6; } /* Blue 500 */
+
+.btn:disabled {
+    background-color: #9CA3AF; /* Gray 400 */
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
 .timer-circle {
     stroke-dasharray: 283;
@@ -65,4 +74,3 @@ video {
     border-radius: 1rem;
     object-fit: cover;
 }
-
