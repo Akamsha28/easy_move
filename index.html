@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gentle Moves</title>
+    <!-- This links to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="main-content" class="w-full max-w-md text-center">
+        <h1 class="text-5xl font-bold text-emerald-800 mb-4">Gentle Moves</h1>
+        <p id="welcome-message" class="text-lg text-emerald-700 mb-8">Choose a routine to get started.</p>
+
+        <div id="exercise-display" class="bg-white rounded-2xl shadow-lg p-6 md:p-8 mb-8 min-h-[400px] flex flex-col justify-center items-center">
+            <div id="selection-screen" class="w-full">
+                <div class="space-y-4">
+                    <button data-workout="gentleStart" class="w-full text-xl btn btn-primary">Gentle Start Routine</button>
+                    <button data-workout="heartHealth" class="w-full text-xl btn btn-primary">Heart & Balance Routine</button>
+                    <button data-workout="morningMobility" class="w-full text-xl btn btn-primary">Morning Mobility Routine</button>
+                </div>
+            </div>
+            <div id="workout-screen" class="hidden w-full">
+                <h2 id="exercise-title" class="text-3xl font-bold text-emerald-600 mb-4"></h2>
+                <div id="video-container" class="w-full h-48 bg-gray-200 rounded-2xl mb-4 flex items-center justify-center">
+                    <video id="exercise-video" class="w-full h-full" loop muted playsinline></video>
+                    <div id="rest-placeholder" class="text-gray-500 text-2xl hidden">Resting...</div>
+                </div>
+                <div class="flex items-center justify-center space-x-6 mb-6">
+                    <div class="relative w-24 h-24">
+                        <svg class="absolute w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                            <circle class="text-gray-200" stroke-width="8" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
+                            <circle class="timer-circle text-emerald-500" stroke-width="8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
+                        </svg>
+                        <div id="countdown" class="absolute w-full h-full flex items-center justify-center text-4xl font-bold text-gray-800"></div>
+                    </div>
+                    <p id="exercise-description" class="text-gray-600 text-left flex-1"></p>
+                </div>
+                <div class="flex justify-center space-x-4">
+                    <button id="pause-button" class="btn btn-secondary">Pause</button>
+                    <button id="end-button" class="btn btn-danger">End Workout</button>
+                </div>
+            </div>
+            <div id="finished-screen" class="hidden">
+                <div class="text-5xl mb-4">🎉</div>
+                <p class="text-3xl font-bold text-emerald-700">Great job!</p>
+                <p class="text-gray-600 mt-2">You've completed the routine.</p>
+            </div>
+        </div>
+        <button id="reminder-button" class="w-full text-xl btn btn-secondary">Set Daily Reminder</button>
+    </div>
+
+    <!-- Modals -->
+    <div id="reminder-modal" class="modal items-center justify-center">
+        <div class="modal-content bg-white w-full max-w-sm p-8 rounded-2xl shadow-xl text-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Set a Daily Reminder</h2>
+            <p class="text-gray-600 mb-6">The app will send you a notification at this time every day.</p>
+            <input type="time" id="time-input" class="w-full p-3 border-2 border-gray-200 rounded-lg text-xl text-center mb-6">
+            <div class="space-y-3">
+                <button id="save-reminder" class="w-full py-3 text-lg font-bold rounded-lg btn-primary">Save Reminder</button>
+                <button id="cancel-reminder" class="w-full py-3 text-lg font-bold rounded-lg bg-gray-200 text-gray-700">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="notification-modal" class="modal items-center justify-center">
+        <div class="modal-content bg-white w-full max-w-sm p-8 rounded-2xl shadow-xl text-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Enable Notifications</h2>
+            <p class="text-gray-600 mb-6">To set reminders, please allow this site to send you notifications.</p>
+            <button id="enable-notifications" class="w-full py-3 text-lg font-bold rounded-lg btn-primary">Enable</button>
+        </div>
+    </div>
+
+    <!-- This links to your JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
 
